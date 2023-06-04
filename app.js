@@ -18,7 +18,7 @@ app.post('/store',async(req,res)=>{
      console.log(req.body)
     db.collection('users').doc().set(req.body).then(res=>{
         console.log(res)
-        res.json({submit:"true"})
+        res.send({submit:"true"})
     })
  })
 const server = app.listen(3000,()=>{
