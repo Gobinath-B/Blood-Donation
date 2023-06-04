@@ -48,7 +48,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Campaign</a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="#">Pages</a>
                 </li>
                 <li class="nav-item">
@@ -56,7 +56,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contact</a>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <a class="nav-link" href="#">About Us</a>
                 </li>
@@ -282,7 +282,7 @@
                     <div class="card-body px-lg-5 pt-0">
 
                         <!-- Form -->
-                        <div class="text-center" style="color: #757575;" action="/store" method="POST">
+                        <form class="text-center" style="color: #757575;" action="/store" method="POST">
 
                             <div class="form-row">
                                 <div class="col">
@@ -345,9 +345,9 @@
 
                             <!-- Sign up button -->
                             <button  id= "form-btn"class="btn btn-danger btn-rounded btn-block my-4 waves-effect z-depth-0"
-                                type="button">Submit</button>
+                                type="Submit">Submit</button>
 
-                        </div>
+                        <form>
                         <!-- Form -->
 
                     </div>
@@ -589,38 +589,38 @@
 
     <script>
        
-document.getElementById("form-btn").addEventListener('click',async()=>{
+// document.getElementById("form-btn").addEventListener('click',async()=>{
  
-   const fName = document.getElementById('materialRegisterFormFirstName').value
-   const lName = document.getElementById('materialRegisterFormLastName').value
-   const phone = document.getElementById('materialRegisterFormPhone').value
-   const mail = document.getElementById('materialRegisterFormEmail').value
-   const blood = document.getElementById('materialRegisterFormBlood').value
-   const message = document.getElementById('materialContactFormMessage').value
+//    const fName = document.getElementById('materialRegisterFormFirstName').value
+//    const lName = document.getElementById('materialRegisterFormLastName').value
+//    const phone = document.getElementById('materialRegisterFormPhone').value
+//    const mail = document.getElementById('materialRegisterFormEmail').value
+//    const blood = document.getElementById('materialRegisterFormBlood').value
+//    const message = document.getElementById('materialContactFormMessage').value
 
-  const response = await fetch('/store',{
-    method:"POST",
-    headers:{
-        "Content-Type":"application/json"
-    },
-    body:JSON.stringify({
-        fName:fName,
-        lName:lName,
-        phone:phone,
-        mail:mail,
-        blood:blood,
-        message:message
+//   const response = await fetch('/store',{
+//     method:"POST",
+//     headers:{
+//         "Content-Type":"application/json"
+//     },
+//     body:JSON.stringify({
+//         fName:fName,
+//         lName:lName,
+//         phone:phone,
+//         mail:mail,
+//         blood:blood,
+//         message:message
 
-    })
-   })
-  const result =  await response.json()
- console.log(await response)
-  if(response.status === 200){
+//     })
+//    })
+//   const result =  await response.json()
+//  console.log(await response)
+//   if(response.status === 200){
 
-alert("Form submitted")
+// alert("Form submitted")
 
-  }
-})
+//   }
+// })
   
       </script>
 </body>

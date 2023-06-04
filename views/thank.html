@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pop-up Banner</title>
+    <style>
+        /* Overlay styles */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        /* Banner styles */
+        .banner {
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            padding: 20px;
+            text-align: center;
+            max-width: 600px;
+            animation: slideIn 0.5s ease-out forwards;
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+
+        /* Close button styles */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+
+        /* Button styles */
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        /* Animation keyframes */
+        @keyframes slideIn {
+            0% {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to our website!</h1>
+    <p>Content goes here...</p>
+
+    <!-- Pop-up banner -->
+    <div class="overlay">
+        <div class="banner">
+            <h2>Thanks for registering!</h2>
+            <p>We appreciate your registration.</p>
+            <a href="/index" class="button">Continue</a>
+            <button class="close-btn">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // Close button functionality
+        const closeBtn = document.querySelector('.close-btn');
+        const overlay = document.querySelector('.overlay');
+
+        closeBtn.addEventListener('click', function () {
+            overlay.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
