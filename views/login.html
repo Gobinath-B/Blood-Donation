@@ -1,106 +1,149 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Login</title>
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            padding: 20px;
-            box-sizing: border-box;
-        }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        padding: 20px;
+        box-sizing: border-box;
+      }
 
-        .container {
-            max-width: 800px;
-            height: 400px;
-            width: 90%;
-            padding: 20px;
-            background-color: #f1f1f1;
-            border-radius: 10px;
-        }
+      .container {
+        max-width: 800px;
+        height: 400px;
+        width: 90%;
+        padding: 20px;
+        background-color: #f1f1f1;
+        border-radius: 10px;
+      }
 
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
 
-        form {
-            margin-bottom: 20px;
-        }
+      form {
+        margin-bottom: 20px;
+      }
 
-        label {
-            display: block;
-            margin-bottom: 10px;
-        }
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
 
-        input[type="email"],
-        input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
+      input[type="email"],
+      input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
 
-        input[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
-        }
+      input[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+      }
 
-        p {
-            text-align: center;
-        }
+      p {
+        text-align: center;
+      }
 
-        a {
-            color: #4CAF50;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
+      a {
+        color: #4caf50;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
 
-        a:hover {
-            color: #45a049;
-        }
+      a:hover {
+        color: #45a049;
+      }
 
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+      /* Animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
         }
+        to {
+          opacity: 1;
+        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <h1>Log in</h1>
+      <h1>Log in</h1>
 
-        <form>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
 
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required />
 
-            <input type="submit" value="Sign Up">
-        </form>
+      <input type="submit" id="form-btn" name="form-btn" value="Log in" />
 
-        <p>Don't have an account? <a href="/">Signup</a></p>
+      <p>Don't have an account? <a href="/">Signup</a></p>
     </div>
 
     <script>
-        // Animation
-        const container = document.querySelector('.container');
-        container.style.animation = 'fadeIn 0.5s';
+      // Animation
+      const container = document.querySelector(".container");
+      container.style.animation = "fadeIn 0.5s";
     </script>
-</body>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
+      import {
+        getAuth,
+        signInWithEmailAndPassword,
+      } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyB7_kKhPR76Y1pzgrzzzA9ZSxFaq9qX8Yg",
+        authDomain: "blood-donation-sns.firebaseapp.com",
+        projectId: "blood-donation-sns",
+        storageBucket: "blood-donation-sns.appspot.com",
+        messagingSenderId: "921563784741",
+        appId: "1:921563784741:web:0816f256a42e47d19541cc",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+
+      const form = document.getElementById("form-btn");
+      form.addEventListener("click", (e) => {
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        signInWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            // Signed in
+            var user = userCredential.user;
+            console.log(userCredential);
+            location.href="/index";
+            
+          })
+          .catch((error) => {
+            var errorCode = error.code;
+            alert(errorCode);
+            var errorMessage = error.message;
+            alert(errorMessage);
+          });
+      });
+    </script>
+  </body>
 </html>

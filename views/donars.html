@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    
+    .frame {
+      flex: 0 0 calc(50% - 20px);
+      margin-bottom: 20px;
+      padding: 20px;
+      background-color: white;
+      border: 2px solid red;
+      border-radius: 5px;
+    }
+    
+    @media (max-width: 767px) {
+      .frame {
+        flex: 0 0 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="frame">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    <div class="frame">
+      <p>Nulla facilisi. Sed nec metus vel neque ultrices molestie.</p>
+    </div>
+    <div class="frame">
+      <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+    </div>
+    <div class="frame">
+      <p>Proin congue ultrices elit vitae dignissim.</p>
+    </div>
+  </div>
+</body>
+</html>

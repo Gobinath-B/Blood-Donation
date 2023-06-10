@@ -145,3 +145,26 @@
     margin-top: 1.25rem;
 }
 
+.search-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  label {
+    flex-basis: 100%;
+    margin-bottom: 5px;
+  }
+  
+  input,
+  select {
+    flex-basis: calc(50% - 10px);
+    margin-bottom: 10px;
+  }
+  
+  button {
+    flex-basis: 100%;
+  }
+  
