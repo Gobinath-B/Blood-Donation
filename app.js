@@ -73,10 +73,12 @@ console.log(location);
       const results = [];
       querySnapshot.forEach((doc) => {
         const donorData = doc.data();
+        console.log(donorData);
         results.push(donorData);
       });
-      const response = res.json(results); // Return the search results as JSON
-      console.log(response);
+      
+        res.json(results); // Return the search results as JSON
+ 
     })
     .catch((error) => {
       console.error('Error searching donors:', error);
