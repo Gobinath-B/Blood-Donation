@@ -1,31 +1,23 @@
 const express = require("express");
 const path = require("path");
 const app = express();
-
+const PORT = 3000;
 const fb = require("./config");
 const db = fb.firestore();
 const auth = fb.auth();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use("/", express.static(__dirname + "/public"));
+app.use("/product", express.static(__dirname + "/public"));
+app.set("view engine", "ejs");
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "views", "signup.html"));
-});
-app.get("/index", (req, res) => {
-  res.sendFile(path.join(__dirname, "views", "index.html"));
-});
+app.get("/", (req, res) => res.render("signup"));
 
-app.get("/donar",(req,res) =>{
-  res.sendFile(path.join(__dirname,"views","donars.html"));
-});
+app.get("/index", (req, res) => res.render("index"));
 
-app.get("/registered", (req, res) => {
-  res.sendFile(path.join(__dirname, "views", "thank.html"));
-});
+app.get("/registered", (req, res) => res.render("thank"));
 
-app.get("/login", (req, res) => {
-  res.sendFile(path.join(__dirname, "views", "login.html"));
-});
+app.get("/login", (req, res) => res.render("login"));
 
 app.post("/login", (req, res) => {
   const email = req.body.email;
@@ -39,7 +31,6 @@ app.post("/signup", async (req, res) => {
 
   const email = req.body.email;
   const password = req.body.password;
-  
 
   await auth
     .createUser({
@@ -50,42 +41,39 @@ app.post("/signup", async (req, res) => {
     .then((response) => {
       console.log(response.uid);
       db.collection("users").doc(response.uid).set(req.body);
-      
     });
-    res.redirect("/registered");
+  res.redirect("/registered");
 });
 
-app.post('/search', (req, res) => {
+app.post("/search", (req, res) => {
   const bloodGroup = req.body.bloodGroup;
   const location = req.body.location;
 
-
-console.log(bloodGroup);
-console.log(location);
-
+  console.log(bloodGroup);
+  console.log(location);
 
   // Perform the Firestore query
-  db.collection('users')
-    .where('bloodGroup', '==', bloodGroup)
-    .where('location', '==', location)
+  db.collection("users")
+    .where("bloodGroup", "==", bloodGroup)
+    .where("location", "==", location)
     .get()
     .then((querySnapshot) => {
       const results = [];
       querySnapshot.forEach((doc) => {
         const donorData = doc.data();
-        console.log(donorData);
+        //  console.log(donorData);
         results.push(donorData);
       });
-      
-        res.json(results); // Return the search results as JSON
- 
+
+      //const resData = res.json(results); // Return the search results as JSON
+      res.render("donars", { data: results || [] });
     })
     .catch((error) => {
-      console.error('Error searching donors:', error);
-      res.status(500).send('An error occurred while searching donors.');
+      console.error("Error searching donors:", error);
+      res.status(500).send("An error occurred while searching donors.");
     });
 });
 
-const server = app.listen(3000, () => {
-  console.log("running...");
+const server = app.listen(PORT, () => {
+  console.log("running on " + PORT);
 });
