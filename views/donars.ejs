@@ -32,17 +32,22 @@
 <body>
   <div class="container">
     <div class="frame">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <% if (data && Array.isArray(data)) { %>
+        <ul>
+          <% data.forEach(function(item) { %>
+            <li>Name: <%= item.name %></li>
+            <li>Blood Group: <%= item.bloodGroup %></li>
+            <li>Location: <%= item.location %></li>
+            <li>Phone Number: <%= item['phone-number'] %></li>
+            <li>Birth Year: <%= item['birth-year'] %></li>
+            <br />
+          <% }); %>
+        </ul>
+      <% } else { %>
+        <p>No data found.</p>
+      <% } %>
     </div>
-    <div class="frame">
-      <p>Nulla facilisi. Sed nec metus vel neque ultrices molestie.</p>
-    </div>
-    <div class="frame">
-      <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-    </div>
-    <div class="frame">
-      <p>Proin congue ultrices elit vitae dignissim.</p>
-    </div>
+    
   </div>
 </body>
 </html>
