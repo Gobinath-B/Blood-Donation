@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const fb = require("./config");
 const db = fb.firestore();
 const auth = fb.auth();
@@ -79,5 +79,5 @@ app.post("/search", (req, res) => {
 });
 
 const server = app.listen(PORT, () => {
-  console.log("running on " + PORT);
+  console.log(`running on ${PORT}`);
 });
