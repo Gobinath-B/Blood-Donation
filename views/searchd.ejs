@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    />
+    <!-- Bootstrap core CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Material Design Bootstrap -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/css/mdb.min.css"
+      rel="stylesheet"
+    />
+    <!-- JQuery -->
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+    ></script>
+    <!-- Bootstrap tooltips -->
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"
+    ></script>
+    <!-- Bootstrap core JavaScript -->
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"
+    ></script>
+    <!-- MDB core JavaScript -->
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/js/mdb.min.js"
+    ></script>
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/png" href="favicon.ico" />
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="assets/css/style-min.css" />
+    <title>Bonded</title>
+</head>
+<body>
+    <nav class="mb-1 navbar navbar-expand-lg navbar-dark danger-color">
+        <a class="navbar-brand" href="#">Bonded</a>
+    </nav>
+    <div class="container-fluid mb-5">
+        <div class="row">
+          <div class="col-sm-6 col-md-6">
+            <!-- <img src="images/quote2.jpg" alt="" srcset="" class="img-fluid"> -->
+            <section class="p-1">
+              <div class="streak grey lighten-3">
+                <div class="flex-center">
+                  <ul class="mb-0 list-unstyled">
+                    <li>
+                      <h2 class="h2-responsive">
+                        <i class="fas fa-quote-left" aria-hidden="true"></i> A
+                        single pint can save three lives. A single gesture can
+                        create a million smiles.
+                        <i class="fas fa-quote-right" aria-hidden="true"></i>
+                      </h2>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+            <section class="p-1">
+              <div class="streak lighten-3">
+                <div class="flex-center">
+                  <ul class="mb-0 list-unstyled">
+                    <li>
+                      <h2 class="h2-responsive">
+                        <i class="fas fa-quote-left" aria-hidden="true"></i> Bring
+                        a life back to power. Make blood donation your
+                        responsibility
+                        <i class="fas fa-quote-right" aria-hidden="true"></i>
+                      </h2>
+                    </li>
+                    <li class="mb-0">
+                      <h5 class="text-center font-italic mb-0">
+                        ~ American Red Cross
+                      </h5>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div class="col-sm-6 col-md-6">
+            <!-- Material form register -->
+            <div class="card">
+              <h5 class="card-header danger-color white-text text-center py-4">
+                <strong>REQUEST BLOOD DONAR</strong>
+              </h5>
+  
+              <!--Card content-->
+              <div class="card-body px-lg-5 pt-0">
+                <!-- Form -->
+  
+                <form action="/search" method="POST">
+                  <label for="bloodGroup" style="padding: 25px; align-items: center;">Blood Group:</label>
+                  <select id="bloodGroup" name="bloodGroup">
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                  </select>
+                  <br />
+                 
+                  <label for="location" style="align-items: center;">Location:</label>
+                  <input type="text" id="location" name="location" required />
+                  <br />
+  
+                  <button
+                    class="btn btn-danger btn-rounded btn-block my-4 waves-effect z-depth-0"
+                    type="submit"
+                  >
+                    SEARCH DONAR
+                  </button>
+                </form>
+  
+                <!-- Sign up button -->
+              </div>
+            </div>
+            <!-- Material form register -->
+          </div>
+        </div>
+      </div>
+</body>
+</html>

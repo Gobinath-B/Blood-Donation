@@ -13,6 +13,10 @@ app.set("view engine", "ejs");
 
 app.get("/", (req, res) => res.render("signup"));
 
+app.get("/donar",(req, res) => res.render("searchd"));
+
+app.get("/donate",(req, res)=> res.render("donate"))
+
 app.get("/index", (req, res) => res.render("index"));
 
 app.get("/registered", (req, res) => res.render("thank"));
