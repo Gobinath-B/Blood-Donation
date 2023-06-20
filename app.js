@@ -1,7 +1,8 @@
 const express = require("express");
+
 const path = require("path");
 const app = express();
-const PORT = process.env.PORT || 3000;
+const Port = process.env.Port || 3000;
 const fb = require("./config");
 const db = fb.firestore();
 const auth = fb.auth();
@@ -13,9 +14,9 @@ app.set("view engine", "ejs");
 
 app.get("/", (req, res) => res.render("signup"));
 
-app.get("/donar",(req, res) => res.render("searchd"));
+app.get("/donar", (req, res) => res.render("searchd"));
 
-app.get("/donate",(req, res)=> res.render("donate"))
+app.get("/donate", (req, res) => res.render("donate"));
 
 app.get("/index", (req, res) => res.render("index"));
 
@@ -78,6 +79,6 @@ app.post("/search", (req, res) => {
     });
 });
 
-const server = app.listen(PORT, () => {
-  console.log(`running on ${PORT}`);
+const server = app.listen(Port, () => {
+  console.log(`running on ${Port}`);
 });
